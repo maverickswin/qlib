@@ -43,7 +43,8 @@ venv
 mlruns/
 
 tags
-
+qlib_venv/
+qlib_bin.tar.gz
 .pytest_cache/
 .mypy_cache/
 .vscode/

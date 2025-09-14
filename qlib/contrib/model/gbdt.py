@@ -56,6 +56,13 @@ class LGBModel(ModelFT, LightGBMFInt):
                     w = reweighter.reweight(df)
                 else:
                     raise ValueError("Unsupported reweighter type.")
+                # # 保存x和y到本地文件，用于查看DataFrame内容
+                # x.to_pickle(f'x_{key}.pkl')
+                # if isinstance(y, np.ndarray):
+                #     # 如果y已经是numpy数组，转换为DataFrame再保存
+                #     pd.DataFrame(y, index=df.index, columns=['label']).to_pickle(f'y_{key}.pkl')
+                # else:
+                #     y.to_pickle(f'y_{key}.pkl')
                 ds_l.append((lgb.Dataset(x.values, label=y, weight=w), key))
         return ds_l
 
