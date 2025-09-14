@@ -37,6 +37,11 @@ class LGBModel(ModelFT, LightGBMFInt):
                 df = dataset.prepare(key, col_set=["feature", "label"], data_key=DataHandlerLP.DK_L)
                 if df.empty:
                     raise ValueError("Empty data from dataset, please check your dataset config.")
+                
+                # 导出原始数据
+                df.to_parquet(f"./{key}_raw_data.parquet")
+                print(f"已导出 {key} 原始数据到 ./{key}_raw_data.parquet")
+                
                 x, y = df["feature"], df["label"]
 
                 # Lightgbm need 1D array as its label
