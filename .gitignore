@@ -35,7 +35,8 @@ examples/rl_order_execution/outputs/
 test-output.xml
 .output
 .data
-
+qlib_bin.tar.gz
+venv
 # special software
 mlruns/
 
